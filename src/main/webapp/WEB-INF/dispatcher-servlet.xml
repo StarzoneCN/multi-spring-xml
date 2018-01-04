@@ -10,12 +10,4 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
         <property name="prefix" value="/WEB-INF/jsp/"/><!-- 前缀 -->
         <property name="suffix" value=".jsp"/><!-- 后缀，自动拼接 -->
     </bean>
-
-    <bean id="aopTestAspect" class="com.example.spring.mvc.aop.AopTestAspect"></bean>
-    <aop:config>
-        <aop:pointcut id="aopTestPointcut" expression="execution(* com.example.spring.mvc.service.AopTestService.*())"/>
-        <aop:aspect ref="aopTestAspect">
-            <aop:around method="aroundAdvice" pointcut-ref="aopTestPointcut"></aop:around>
-        </aop:aspect>
-    </aop:config>
 </beans>

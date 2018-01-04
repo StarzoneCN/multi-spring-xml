@@ -14,7 +14,11 @@ public class AopTestAspect {
     }
 
     public void aroundAdvice(ProceedingJoinPoint pjp){
-
+        try {
+            pjp.proceed();
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
         System.out.println("--------------aroundAdvice--------------");
     }
 }

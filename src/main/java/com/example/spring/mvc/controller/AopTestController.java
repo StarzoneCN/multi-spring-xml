@@ -15,7 +15,9 @@ public class AopTestController {
     @RequestMapping
     @RequestLogger(description = "aopTestController.testAop()")
     public String testAop() {
+        System.out.println("--------------entry into testAop()--------------");
         aopTestService.showAction();
+        System.out.println("--------------after aopTestService.showAction() in testAop()--------------");
         return "success";
     }
 }

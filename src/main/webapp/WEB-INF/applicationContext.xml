@@ -35,4 +35,13 @@
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
+
+
+    <bean id="aopTestAspect" class="com.example.spring.mvc.aop.AopTestAspect"></bean>
+    <aop:config>
+        <aop:pointcut id="aopTestPointcut" expression="execution(* com.example.spring.mvc.service.*.*(..))"/>
+        <aop:aspect ref="aopTestAspect">
+            <aop:around method="aroundAdvice" pointcut-ref="aopTestPointcut"></aop:around>
+        </aop:aspect>
+    </aop:config>
 </beans>
