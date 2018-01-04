@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
         <property name="prefix" value="/WEB-INF/jsp/"/><!-- 前缀 -->
         <property name="suffix" value=".jsp"/><!-- 后缀，自动拼接 -->
     </bean>
+
+    <bean id="aopTestAspect" class="com.example.spring.mvc.aop.AopTestAspect"></bean>
+    <aop:config>
+        <aop:pointcut id="aopTestPointcut" expression="execution(* com.example.spring.mvc.service.AopTestService.*())"/>
+        <aop:aspect ref="aopTestAspect">
+            <aop:around method="aroundAdvice" pointcut-ref="aopTestPointcut"></aop:around>
+        </aop:aspect>
+    </aop:config>
 </beans>

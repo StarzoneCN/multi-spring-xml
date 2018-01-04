@@ -1,5 +1,10 @@
 import com.alibaba.fastjson.JSONObject;
+import com.sun.org.apache.xpath.internal.operations.String;
+import org.springframework.core.io.DefaultResourceLoader;
+import org.springframework.core.io.Resource;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,9 +17,6 @@ import java.util.Map;
 public class TestMain {
 
     public static void main(String[] args) {
-        Map<String, String> student = new HashMap<String, String>();
-        student.put("name", "starzoneCN");
-        String jsonStr = JSONObject.toJSONString(student);
-        System.out.println(jsonStr);
+        System.out.println(null + " ");
     }
 }
