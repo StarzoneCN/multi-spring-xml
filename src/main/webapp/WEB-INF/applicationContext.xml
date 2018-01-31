@@ -32,4 +32,19 @@
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
+
+    <bean id="beforeDaoAdvice" class="com.example.spring.mvc.aop.advice.CustomMethodBeforeAdvice"></bean>
+    <bean id="advisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+        <constructor-arg name="advice" ref="beforeDaoAdvice"></constructor-arg>
+    </bean>
+    <bean id="aopTargetService" class="com.example.spring.mvc.aop.business.AopTarget"></bean>
+    <bean id="daoAopService" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="com.example.spring.mvc.service.AopTestService"></property>
+        <property name="target" value="com.example.spring.mvc.aop.business.AopTarget"></property>
+        <property name="interceptorNames">
+            <list>
+                <value>advisor</value>
+            </list>
+        </property>
+    </bean>
 </beans>
