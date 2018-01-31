@@ -41,7 +41,7 @@ public class User{
 		this.password = password;
 	}
 
-	public Boolean getMan() {
+	public Boolean isMan() {
 		return man;
 	}
 
@@ -57,7 +57,7 @@ public class User{
 		this.age = age;
 	}
 
-	public Boolean getStudent() {
+	public Boolean isStudent() {
 		return student;
 	}
 
