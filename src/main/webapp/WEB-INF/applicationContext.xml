@@ -33,7 +33,7 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <bean id="beforeDaoAdvice" class="com.example.spring.mvc.aop.advice.CustomMethodBeforeAdvice"></bean>
+    <!--<bean id="beforeDaoAdvice" class="com.example.spring.mvc.aop.advice.CustomMethodBeforeAdvice"></bean>
     <bean id="advisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
         <constructor-arg name="advice" ref="beforeDaoAdvice"></constructor-arg>
     </bean>
@@ -46,5 +46,5 @@
                 <value>advisor</value>
             </list>
         </property>
-    </bean>
+    </bean>-->
 </beans>
