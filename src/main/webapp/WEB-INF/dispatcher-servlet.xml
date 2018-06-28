@@ -8,4 +8,6 @@
         <property name="prefix" value="/WEB-INF/jsp/"/><!-- 前缀 -->
         <property name="suffix" value=".jsp"/><!-- 后缀，自动拼接 -->
     </bean>
+
+
 </beans>

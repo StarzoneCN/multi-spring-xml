@@ -9,6 +9,14 @@ package com.example.spring.mvc.entity;
  * @since 2017-11-14
  */
 public class User{
+	public User(){
+		System.out.println("constructor");
+	}
+
+	public static User getUser(){
+		System.out.println("factory method");
+		return new User();
+	}
 
     private Integer id;
     private String name;
@@ -63,5 +71,17 @@ public class User{
 
 	public void setStudent(Boolean student) {
 		this.student = student;
+	}
+
+	@Override
+	public String toString() {
+		return "User{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", password='" + password + '\'' +
+				", man=" + man +
+				", age=" + age +
+				", student=" + student +
+				'}';
 	}
 }

@@ -3,6 +3,7 @@ package com.example.spring.mvc.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.example.spring.mvc.entity.User;
 import com.example.spring.mvc.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -21,6 +22,7 @@ import javax.annotation.Resource;
 public class UserController {
 
     @Resource private UserService userService;
+    @Autowired private User user;
 
     @RequestMapping("/{id}")
     public String getUserById(@PathVariable("id") Integer id) {
@@ -29,5 +31,12 @@ public class UserController {
             return JSONObject.toJSONString(user);
         }
         return "null";
+    }
+
+    @RequestMapping("su")
+    public String showUser(){
+        user.setName("autowired");
+        user.setAge(1);
+        return user.toString();
     }
 }
